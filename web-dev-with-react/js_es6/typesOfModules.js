@@ -61,28 +61,50 @@ Every request will have one unique request, and it will complete that only.
 */
 
 // Program 2: reading synchronously
-// let fileData;
-// try {
-//     fileData = fs.readFileSync(fileName);
-//     console.log(fileData, '\n');
-//     console.log(fileData.toString());
-// } catch(err) {
-//     console.log('Error occurred while reading the file!!')
-// }
-// console.log('myProgram ends here')
+let fileData;
+try {
+    fileData = fs.readFileSync(fileName);
+    console.log(fileData, '\n');
+    console.log(fileData.toString());
+} catch(err) {
+    console.log('Error occurred while reading the file!!')
+}
+console.log('myProgram ends here')
 
 
 
 // ------------- Experimenting ---------------------
-fs.writeFile(fileName, data, (err) => {
-    if(err) console.log('an error occurred');
-    else {
-        try {
-            let data = fs.readFileSync(fileName)
-            console.log(data.toString());
-        } catch(err) {
-            console.log('error in reading data');
-        }
-        console.log('data was written');
-    }
-})
+// fs.writeFile(fileName, data, (err) => {
+//     if(err) console.log('an error occurred');
+//     else {
+//         try {
+//             let data = fs.readFileSync(fileName)
+//             console.log(data.toString());
+//         } catch(err) {
+//             console.log('error in reading data');
+//         }
+//         console.log('data was written');
+//     }
+// })
+
+// fs.unlink(fileName, (err) => {
+//     if(err) console.log('error occurred bro!!');
+//     else console.log('deleted the file successfully!')
+// });
+
+
+
+/**
+ * 
+ * More methods:
+ 
+   learn all syntax from nodejs.org
+
+ * readFile, readFileSync
+ * writeFile, writeFileSync
+ * unlink, unlinkSync
+ * rename, renameFileSync
+ * appendFile, appendFileSync
+ * copyFile, copyFileSync
+ * watch, watchFile
+ */
