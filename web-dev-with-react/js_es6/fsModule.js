@@ -61,15 +61,15 @@ Every request will have one unique request, and it will complete that only.
 */
 
 // Program 2: reading synchronously
-let fileData;
-try {
-    fileData = fs.readFileSync(fileName);
-    console.log(fileData, '\n');
-    console.log(fileData.toString());
-} catch(err) {
-    console.log('Error occurred while reading the file!!')
-}
-console.log('myProgram ends here')
+// let fileData;
+// try {
+//     fileData = fs.readFileSync(fileName);
+//     console.log(fileData, '\n');
+//     console.log(fileData.toString());
+// } catch(err) {
+//     console.log('Error occurred while reading the file!!')
+// }
+// console.log('myProgram ends here')
 
 
 
@@ -94,6 +94,18 @@ console.log('myProgram ends here')
 
 
 
+
+// fs.appendFile(fileName, 'Appending data', (err) => {
+//   if(err) console.log('an error occurred');
+//   else console.log('successfully appended');
+// });
+
+fs.readFile(fileName, (err, data) => {
+  if(err) console.log('an error occurred in reading')
+  else console.log(data.toString());
+})
+
+
 /**
  * 
  * More methods:
@@ -106,5 +118,7 @@ console.log('myProgram ends here')
  * rename, renameFileSync
  * appendFile, appendFileSync
  * copyFile, copyFileSync
- * watch, watchFile
+ * watch, watchFile     [for dir, for file]
  */
+
+
