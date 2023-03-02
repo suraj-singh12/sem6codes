@@ -71,12 +71,75 @@ import ReactDOM from 'react-dom/client';
 //   <li>3 cloves of Garlic</li>
 // </ul>;
 
-let listOfElems = ['element1', 'element2', 'element X']
-let myList = listOfElems.map((item)  => {
-  // return React.createElement('li', {}, item);
-  return <li>{item}</li>
-});
+// let listOfElems = ['element1', 'element2', 'element X']
+// let myList = listOfElems.map((item)  => {
+//   // return React.createElement('li', {}, item);
+//   return <li>{item}</li>
+// });
+
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(myList);
+
+
+
+// * Creating class components
+// class Book extends React.Component {
+//     render() {
+//         return <h2>Hello, I am a Book</h2>
+//     }
+// }
+
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(<Book />)
+
+
+
+// * Creating functional Components
+// function Book() {
+//   return <>
+//     <h2>Hello, I am a Book Book</h2>
+//   </>
+// }
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(<Book/>)
+
+
+// ----------------- code2
+// class Book1 extends React.Component {
+//   render() {
+//     return (
+//       <>
+//         <h2>Do you have ReactJs Book?</h2>
+//         <Book/>
+//       </>
+//     )
+//   }
+// }
+
+// class Book extends React.Component {
+//   render() {
+//     return (
+//       <>
+//       <h3>
+//         The React Book</h3>
+//       </>
+//     )
+//   }
+// }
+
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(<Book1/>)
+
+// --------------------------------------------
+
+import './index.css';
+
+function MyProfess(props) {
+  return <p style={{color: 'white', backgroundColor: 'orange', float: 'right', padding: '2vw', borderRadius: '0.3em', boxShadow: 'rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px'}}>My Profession is {props.prof}</p>
+}
+function MyIntro() {
+  return <h3 style={{padding: '2vw', backgroundColor: 'lightskyblue', boxShadow: '10px 5px 5px lightblue', borderRadius: '4px'}}>My name is Anurag! <MyProfess prof="student"/></h3>
+}
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(myList);
-
+root.render(<MyIntro/>)
