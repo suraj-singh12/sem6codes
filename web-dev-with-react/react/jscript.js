@@ -13,6 +13,9 @@ const car = {
     this.isRunning = false;
     console.log("The car has stopped.");
   },
+  state: function() {
+    console.log('The state of car!');
+  }
 };
 
 // Accessing object properties and methods
