@@ -16,5 +16,6 @@ let server = http.createServer(function(req, res) {
 });
 
 
-server.listen(8000);
-console.log('Server running at port 8000');
+server.listen(8000, () => {
+    console.log('Server running at port 8000');
+});

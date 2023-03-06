@@ -1,0 +1,15 @@
+
+events:
+data, end, err, finish
+data: when data is available
+end: when no more data is available
+err: when an error occurs
+finish: when all data has been flushed to the underlying system
+
+different streams:
+writeable, readable, duplex, transform
+writeable: can write data to it
+readable: can read data from it
+duplex: can read and write data
+transform: can read and write data, but the output is computed based on the input
+
