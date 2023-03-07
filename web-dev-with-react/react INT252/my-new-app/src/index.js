@@ -17,8 +17,8 @@
 // reportWebVitals();
 
 
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+// import React from 'react';
+// import ReactDOM from 'react-dom/client';
 
 // program 1
 
@@ -132,14 +132,27 @@ import ReactDOM from 'react-dom/client';
 
 // --------------------------------------------
 
-import './index.css';
+// import './index.css';
 
-function MyProfess(props) {
-  return <p style={{color: 'white', backgroundColor: 'orange', float: 'right', padding: '2vw', borderRadius: '0.3em', boxShadow: 'rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px'}}>My Profession is {props.prof}</p>
-}
-function MyIntro() {
-  return <h3 style={{padding: '2vw', backgroundColor: 'lightskyblue', boxShadow: '10px 5px 5px lightblue', borderRadius: '4px'}}>My name is Anurag! <MyProfess prof="student"/></h3>
-}
+// function MyProfess(props) {
+//   return <p style={{color: 'white', backgroundColor: 'orange', float: 'right', padding: '2vw', borderRadius: '0.3em', boxShadow: 'rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px'}}>My Profession is {props.prof}</p>
+// }
+// function MyIntro() {
+//   return <h3 style={{padding: '2vw', backgroundColor: 'lightskyblue', boxShadow: '10px 5px 5px lightblue', borderRadius: '4px'}}>My name is Anurag! <MyProfess prof="student"/></h3>
+// }
+
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(<MyIntro/>)
+
+
+// CSS modules
+// to avoid name conflicts, to avoid css to get applied to all components
+// css modules are local to the comoponent for which they are defined
+
+import React from  'react';
+import ReactDOM from 'react-dom/client';
+import Demo from './css_modules_example/Demo.js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<MyIntro/>)
+root.render(<Demo />);
+
