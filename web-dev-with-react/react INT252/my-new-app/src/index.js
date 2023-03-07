@@ -207,34 +207,61 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-class Book extends React.Component {
-    constructor() {
-        super();
-        this.updateName = this.updateName.bind(this);
-        this.state = {
-            name: 'Fundaments of ReactJS'
-        }
-    }
-    updateName() {
+// class Book extends React.Component {
+//     constructor() {
+//         super();
+//         this.updateName = this.updateName.bind(this);
+//         this.state = {
+//             name: 'Fundaments of ReactJS'
+//         }
+//     }
+//     updateName() {
+//         // this.setState({name: 'ReactJS Essentials'});
+//         let data = document.getElementById('name');
+//         if(data && data.value !== '')
+//             this.setState({name: data.value});
+//     }
+
+//     render() {
+//         return (
+//             <>
+//                 <h1>{this.state.name}</h1>
+//                 <label htmlFor="name">
+//                     New Book Name:
+//                     <input type="text" id="name" />
+//                 </label>
+//                 <button onClick={this.updateName}>Change Name</button>
+//             </>
+//         )
+//     }
+// }
+
+
+// states using functional components
+import {useState} from 'react';
+
+const Book = () => {
+    // let state = {
+    //     name: 'Fundamentals of React'
+    // }
+    const [name, setName] = useState('Java CP');
+
+    function updateName() {
         // this.setState({name: 'ReactJS Essentials'});
         let data = document.getElementById('name');
         if(data && data.value !== '')
-            this.setState({name: data.value});
+            setName(data.value);
     }
-
-    render() {
-        return (
-            <>
-                <h1>{this.state.name}</h1>
-                <label htmlFor="name">
-                    New Book Name:
-                    <input type="text" id="name" />
-                </label>
-                <button onClick={this.updateName}>Change Name</button>
-            </>
-        )
-    }
+    return (
+        <>
+            <h1>{name}</h1>
+            <label htmlFor="name">
+                New Book Name:
+                <input type="text" id="name" />
+            </label>
+            <button onClick={updateName}>Change Name</button>
+        </>
+    )
 }
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<Book />);
