@@ -164,8 +164,8 @@
 
 
 // event handling in React
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+// import React from 'react';
+// import ReactDOM from 'react-dom/client';
 
 // function Form() {
 //     function handleSubmit(e) {
@@ -179,22 +179,62 @@ import ReactDOM from 'react-dom/client';
 //     );
 // }
 
-class Form extends React.Component {
-    handleSubmit(e) {
-        e.preventDefault();
-        console.log('You clicked submit');
-        alert('How dare you to click that submit button !')
+// class Form extends React.Component {
+//     handleSubmit(e) {
+//         e.preventDefault();
+//         console.log('You clicked submit');
+//         alert('How dare you to click that submit button !')
+//     }
+
+//     render() {
+//         return (
+//             <form onSubmit={this.handleSubmit}>
+//                 <button type="submit">Submit</button>
+//             </form>
+//         )
+//     }
+// }
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(<Form />);
+
+
+
+
+
+
+// States in React
+
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
+class Book extends React.Component {
+    constructor() {
+        super();
+        this.updateName = this.updateName.bind(this);
+        this.state = {
+            name: 'Fundaments of ReactJS'
+        }
+    }
+    updateName() {
+        // this.setState({name: 'ReactJS Essentials'});
+        let data = document.getElementById('name');
+        if(data && data.value !== '')
+            this.setState({name: data.value});
     }
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                <button type="submit">Submit</button>
-            </form>
+            <>
+                <h1>{this.state.name}</h1>
+                <label htmlFor="name">
+                    New Book Name:
+                    <input type="text" id="name" />
+                </label>
+                <button onClick={this.updateName}>Change Name</button>
+            </>
         )
     }
 }
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Form />);
-
-
+root.render(<Book />);
