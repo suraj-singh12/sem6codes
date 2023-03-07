@@ -238,13 +238,13 @@ import ReactDOM from 'react-dom/client';
 
 
 // states using functional components
-import {useState} from 'react';
+import {useState} from 'react';     // will use this useState hook  
 
 const Book = () => {
     // let state = {
     //     name: 'Fundamentals of React'
     // }
-    const [name, setName] = useState('Java CP');
+    const [name, setName] = useState('Java CP');        // utilizing the useState hook 
 
     function updateName() {
         // this.setState({name: 'ReactJS Essentials'});
@@ -265,3 +265,15 @@ const Book = () => {
 }
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<Book />);
+
+
+
+/**
+ * React Hooks
+ * Overall, hooks provide a simpler and more flexible way to use state and other 
+ * React features in functional components, 
+ * and have quickly become a popular tool for building React applications.
+ * 
+ * There are several built-in hooks in React, including:
+ * useState, useEffect, useContext, useReducer, useMemo, useCallBack
+ */
