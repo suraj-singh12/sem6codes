@@ -149,15 +149,52 @@
 // to avoid name conflicts, to avoid css to get applied to all components
 // css modules are local to the comoponent for which they are defined
 
-import React from  'react';
-import ReactDOM from 'react-dom/client';
-import Demo from './css_modules_example/Demo.js';
+// import React from  'react';
+// import ReactDOM from 'react-dom/client';
+// import Demo from './css_modules_example/Demo.js';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Demo />);
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(<Demo />);
 
 /*
  * To install bootstrap: npm i bootstrap@latest --save
  * import 'bootstrap/dist/css/bootstrap.min.css';
 */
+
+
+
+// event handling in React
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
+// function Form() {
+//     function handleSubmit(e) {
+//         e.preventDefault();
+//         console.log('You clicked submit');
+//     }
+//     return (
+//         <form onSubmit={handleSubmit}>
+//             <button type="submit">Submit</button>
+//         </form>
+//     );
+// }
+
+class Form extends React.Component {
+    handleSubmit(e) {
+        e.preventDefault();
+        console.log('You clicked submit');
+        alert('How dare you to click that submit button !')
+    }
+
+    render() {
+        return (
+            <form onSubmit={this.handleSubmit}>
+                <button type="submit">Submit</button>
+            </form>
+        )
+    }
+}
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<Form />);
+
 
