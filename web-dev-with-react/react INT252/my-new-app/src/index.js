@@ -156,3 +156,8 @@ import Demo from './css_modules_example/Demo.js';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<Demo />);
 
+/*
+ * To install bootstrap: npm i bootstrap@latest --save
+ * import 'bootstrap/dist/css/bootstrap.min.css';
+*/
+
