@@ -204,8 +204,8 @@
 
 // States in React
 
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+// import React from 'react';
+// import ReactDOM from 'react-dom/client';
 
 // class Book extends React.Component {
 //     constructor() {
@@ -238,33 +238,33 @@ import ReactDOM from 'react-dom/client';
 
 
 // states using functional components
-import {useState} from 'react';     // will use this useState hook  
+// import {useState} from 'react';     // will use this useState hook  
 
-const Book = () => {
-    // let state = {
-    //     name: 'Fundamentals of React'
-    // }
-    const [name, setName] = useState('Java CP');        // utilizing the useState hook 
+// const Book = () => {
+//     // let state = {
+//     //     name: 'Fundamentals of React'
+//     // }
+//     const [name, setName] = useState('Java CP');        // utilizing the useState hook 
 
-    function updateName() {
-        // this.setState({name: 'ReactJS Essentials'});
-        let data = document.getElementById('name');
-        if(data && data.value !== '')
-            setName(data.value);
-    }
-    return (
-        <>
-            <h1>{name}</h1>
-            <label htmlFor="name">
-                New Book Name:
-                <input type="text" id="name" />
-            </label>
-            <button onClick={updateName}>Change Name</button>
-        </>
-    )
-}
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Book />);
+//     function updateName() {
+//         // this.setState({name: 'ReactJS Essentials'});
+//         let data = document.getElementById('name');
+//         if(data && data.value !== '')
+//             setName(data.value);
+//     }
+//     return (
+//         <>
+//             <h1>{name}</h1>
+//             <label htmlFor="name">
+//                 New Book Name:
+//                 <input type="text" id="name" />
+//             </label>
+//             <button onClick={updateName}>Change Name</button>
+//         </>
+//     )
+// }
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(<Book />);
 
 
 
@@ -277,3 +277,52 @@ root.render(<Book />);
  * There are several built-in hooks in React, including:
  * useState, useEffect, useContext, useReducer, useMemo, useCallBack
  */
+
+
+
+// useEffect 
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
+
+// useEffect implementation in class Components
+class Book extends React.Component {
+    // constructor() {
+    //     super()
+    //     this.state = {
+    //         count : 0
+    //     }
+    //     this.setCount = this.setCount.bind(this);
+    // }
+    state = {
+        count : 0
+    }
+    
+    setCount() {
+        let currentCount = this.state.count;
+        this.setState({count : currentCount + 1});
+    }
+
+    componentDidMount() {
+        document.title = `You clicked ${this.state.count} times`;
+    }
+    
+    // componentDidUpdate() implements useEffect functionality here 
+    componentDidUpdate() {
+        document.title = `You clicked ${this.state.count} times`;
+        const countElement = document.getElementById('count');
+        countElement.textContent = `Counter : ${this.state.count}`;
+    }
+    render() {
+        return (
+            <>
+            <p>You clicked {this.state.count} times</p>
+            <p id="count"></p>
+            <button onClick={this.setCount}>Click Me</button>
+            </>
+        )
+    }
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<Book />);
