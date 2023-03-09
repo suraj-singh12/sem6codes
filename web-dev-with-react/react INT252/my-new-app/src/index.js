@@ -280,49 +280,175 @@
 
 
 
-// useEffect 
-import React from 'react';
+//  * useEffect : used to perform side effects in components, 
+// data fetching, setting up a subscription, and manually changing the DOM in React components are all examples of side effects.
+// useEffect always has a callback function
+
+// import React from 'react';
+// import ReactDOM from 'react-dom/client';
+
+
+// // useEffect implementation in class Components
+// class Book extends React.Component {
+//     // constructor() {
+//     //     super()
+//     //     this.state = {
+//     //         count : 0
+//     //     }
+//     //     this.setCount = this.setCount.bind(this);
+//     // }
+//     state = {
+//         count : 0
+//     }
+    
+//     setCount() {
+//         let currentCount = this.state.count;
+//         this.setState({count : currentCount + 1});
+//     }
+
+//     componentDidMount() {
+//         document.title = `You clicked ${this.state.count} times`;
+//     }
+    
+//     // componentDidUpdate() implements useEffect functionality here 
+//     componentDidUpdate() {
+//         document.title = `You clicked ${this.state.count} times`;
+//         const countElement = document.getElementById('count');
+//         countElement.textContent = `Counter : ${this.state.count}`;
+//     }
+//     render() {
+//         return (
+//             <>
+//             <p>You clicked {this.state.count} times</p>
+//             <p id="count"></p>
+//             <button onClick={this.setCount}>Click Me</button>
+//             </>
+//         )
+//     }
+// }
+
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(<Book />);
+
+
+// useEffect implementation in functional components
+import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom/client';
 
-
-// useEffect implementation in class Components
-class Book extends React.Component {
-    // constructor() {
-    //     super()
-    //     this.state = {
-    //         count : 0
+const Timer = () => {
+    const [value, setValue] = useState(0);
+    // useEffect(() => {
+    //     setTimeout(() => {
+    //         setValue(value + 1);
     //     }
-    //     this.setCount = this.setCount.bind(this);
-    // }
-    state = {
-        count : 0
-    }
-    
-    setCount() {
-        let currentCount = this.state.count;
-        this.setState({count : currentCount + 1});
-    }
+    //     , 1000);
+    // });
 
-    componentDidMount() {
-        document.title = `You clicked ${this.state.count} times`;
+    const updateTime = () => {
+        setTimeout(()=> {
+            setValue(value + 1);
+        }, 1000);
     }
-    
-    // componentDidUpdate() implements useEffect functionality here 
-    componentDidUpdate() {
-        document.title = `You clicked ${this.state.count} times`;
-        const countElement = document.getElementById('count');
-        countElement.textContent = `Counter : ${this.state.count}`;
-    }
-    render() {
-        return (
-            <>
-            <p>You clicked {this.state.count} times</p>
-            <p id="count"></p>
-            <button onClick={this.setCount}>Click Me</button>
-            </>
-        )
-    }
+    updateTime();
+    return <h1>I have rendered {value} times</h1>
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Book />);
+root.render(<Timer />);
+
+
+
+// example : useState
+// import React from 'react';
+// import ReactDOM from 'react-dom/client';
+
+// class Book extends React.Component {
+//     state = {
+//         name: 'Fundamentals of React',
+//     }
+    
+//     updateName = () => {
+//         let data = document.getElementById('name');
+//         if(data && data.value !== '')
+//             this.setState({ name: data.value });
+//     }
+
+//     render() {
+//         return (
+//             <>
+//                 <h1>{this.state.name}</h1>
+//                 <label htmlFor="name">
+//                     New Book Name:
+//                     <input type="text" id="name" />
+//                 </label>
+//                 <button onClick={this.updateName}>Change Name</button>
+//             </>
+//         )
+//     }
+
+// }
+
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(<Book />);
+
+// useState hook example 2
+// import React from 'react';
+// import ReactDOM from 'react-dom/client';
+// import { useState } from 'react';
+
+// const Book = () => {
+//     const [name, setName] = useState('Love C++');
+
+//     return (
+//         <>
+//             <h1>{name}</h1>
+//             <label htmlFor="name">
+//                 New Book Name:
+//                 <input type="text" id="name" />
+//             </label>
+//             <button onClick={() => setName(document.getElementById('name') ? document.getElementById('name').value : '')}>Change Name</button>
+//         </>
+//     )
+// }
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(<Book />);
+
+
+
+// // useEffect hook example2
+// import React from 'react';
+// import ReactDOM from 'react-dom/client';
+// import { useState } from 'react';
+
+
+// const Mobile = () => {
+//     const [specs, setSpecs] = useState({ 
+//         devName: 'Google Pixel 7 Pro',
+//         androidVersion: 'Android 11',
+//         weight: '212g weight',
+//         camera: '50MP Main camera',
+//         storage: '128GB storage',
+//         ram: '12GB RAM'
+//     });
+
+//     const updateRam = () => {
+//         setSpecs(prevSpecs => {
+//             return {...prevSpecs, ram: '8GB RAM'}
+//         });
+//     }
+//     return (
+//         <>
+//             <h1>{specs.devName}</h1>
+//             <p>{specs.androidVersion}</p>
+//             <p>{specs.weight}</p>
+//             <p>{specs.camera}</p>
+//             <p>{specs.storage}</p>
+//             <p>{specs.ram}</p>
+//             {/* <button onClick={() => setSpecs({...specs, ram: '8GB RAM'})}>Change RAM to 8 GB</button> */}
+//             <button onClick={updateRam}>Change RAM to 8 GB</button>
+//         </>
+//     )
+// }
+
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(<Mobile />);
