@@ -371,6 +371,7 @@ import ReactDOM from 'react-dom/client';
 
 const Timer = () => {
     const [value, setValue] = useState(0);
+    const [value2, setValue2] = useState(0);
     // useEffect(() => {
     //     setTimeout(() => {
     //         setValue(value + 1);
@@ -393,9 +394,7 @@ const Timer = () => {
 
     // will count only once
     useEffect(() => {
-        setTimeout(() => {
-            setValue(value + 1);
-        }, 1000);
+        console.log('You clicked')
     }, []);
 
 
@@ -409,7 +408,7 @@ const Timer = () => {
     return (
         <>
             <button onClick={() => setValue(value + 1)}> Number of clicks: {value}</button>
-            {/* <button onClick={() => setValue(value + 1)}> Number of clicks: {value}</button> */}
+            <button onClick={() => setValue(value + 1)}> Number of clicks: {value}</button>
         </>
     )
 }
