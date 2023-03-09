@@ -396,6 +396,7 @@ const Timer = () => {
     useEffect(() => {
         console.log('You clicked')
     }, [value]);
+    // the no of times the value changes, is the number of times, useEffect will make the side effects 
 
 
     // will keep on counting :
