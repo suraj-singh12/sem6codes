@@ -408,7 +408,7 @@ const Timer = () => {
     return (
         <>
             <button onClick={() => setValue(value + 1)}> Number of clicks: {value}</button>
-            <button onClick={() => setValue2(value2 + 1)}> Number of clicks: {value}</button>
+            <button onClick={() => setValue2(value2 + 1)}> Number of clicks: {value2}</button>
         </>
     )
 }
