@@ -331,7 +331,41 @@
 // root.render(<Book />);
 
 
-// useEffect implementation in functional components
+// * useEffect implementation in functional components
+// import React, {useState, useEffect} from 'react';
+// import ReactDOM from 'react-dom/client';
+
+// const Timer = () => {
+//     const [value, setValue] = useState(0);
+//     // useEffect(() => {
+//     //     setTimeout(() => {
+//     //         setValue(value + 1);
+//     //     }
+//     //     , 1000);
+//     // });
+
+//     // const updateTime = () => {
+//     //     setTimeout(()=> {
+//     //         setValue(value + 1);
+//     //     }, 1000);
+//     // }
+//     // updateTime();
+
+
+//     // without useEffect 
+//     setTimeout( () => {
+//         setValue(value + 1);
+//     }, 1000)
+//     return <h1>I have rendered {value} times</h1>
+// }
+
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(<Timer />);
+
+
+
+
+
 import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom/client';
 
@@ -344,18 +378,44 @@ const Timer = () => {
     //     , 1000);
     // });
 
-    const updateTime = () => {
-        setTimeout(()=> {
+    // const updateTime = () => {
+    //     setTimeout(()=> {
+    //         setValue(value + 1);
+    //     }, 1000);
+    // }
+    // updateTime();
+
+
+    // without useEffect 
+    // setTimeout( () => {
+    //     setValue(value + 1);
+    // }, 1000)
+
+    // will count only once
+    useEffect(() => {
+        setTimeout(() => {
             setValue(value + 1);
         }, 1000);
-    }
-    updateTime();
-    return <h1>I have rendered {value} times</h1>
+    }, []);
+
+
+    // will keep on counting :
+    // useEffect(() => {
+    //     setTimeout(() => {
+    //         setValue(value + 1);
+    //     }, 1000);
+    // }, [value]);
+
+    return (
+        <>
+            <button onClick={() => setValue(value + 1)}> Number of clicks: {value}</button>
+            {/* <button onClick={() => setValue(value + 1)}> Number of clicks: {value}</button> */}
+        </>
+    )
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<Timer />);
-
 
 
 // example : useState
