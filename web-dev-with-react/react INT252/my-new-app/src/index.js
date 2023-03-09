@@ -395,7 +395,7 @@ const Timer = () => {
     // will count only once
     useEffect(() => {
         console.log('You clicked')
-    }, []);
+    }, [value]);
 
 
     // will keep on counting :
