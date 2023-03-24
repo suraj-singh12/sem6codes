@@ -12,14 +12,16 @@ app.get('/', (req, res) => {
         profile: 'admin'
     };
     // res.cookie('course', 'html').send('Our website has set the cookies');
-    res.cookie('user', userData).send('<h1>Our website has set the NEW cookies</h1>');
-    console.log('Cookies: ', req.cookies);
+    res.cookie('user', userData).send('<h1>Our website has set the cookies</h1>');
+    console.log('Set Cookies: ', req.cookies);
 });
 
 // clear the cookie
 app.get('/clear', (req, res) => {
-    res.clearCookie('course', 'html');
+    // res.clearCookie('course', 'html');
+    res.clearCookie('user')
     res.send('<h1>Cookies cleared</h1>');
+    console.log('Erased Cookies: ', req.cookies);
 });
 
 app.listen(3200, () => {
