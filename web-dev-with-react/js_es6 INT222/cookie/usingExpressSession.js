@@ -15,6 +15,7 @@ app.get('/', (req, res) => {
         res.send('No of visits ' + req.session.page_views);
     } else {
         req.session.page_views = 1;
+        console.log(req.session)
         res.send('You are a first time visitor OR [ the cookie expired after session being idle for maxAge :-) ]');
     }
 });
