@@ -1,2 +1,13 @@
 middleware: 
-A middleware in js is 
+In JavaScript, middleware is a software component that sits between an application's front-end and back-end components, intercepting and processing requests and responses as they flow through the system. It is a way to modularize an application's functionality and improve its scalability, maintainability, and extensibility.
+
+
+body-parser
+cookie-parser
+express-session
+helmet
+morgan
+multer
+passport
+passport-local
+
