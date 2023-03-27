@@ -1,0 +1,33 @@
+<DOCTYPE html>
+<html>
+    <head>
+        <title>Broadcast</title>
+    </head>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+        socket.on('broadcast', (data) => {
+            document.body.innerHTML = '';
+            document.write(data.msg);
+        });
+
+        // after page load do this
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('DOM loaded');
+
+            let styleType = document.getElementById('myH1');
+            // console.log(styleType);
+            let styles = ['red', 'green', 'blue', 'orange', 'purple'];
+            let i = 0;
+            setInterval(() => {
+                // console.log('changing color', styles[i])
+                styleType.style.color = styles[i++ % styles.length];
+            }, 1000);
+        });
+    </script>
+    <body>
+        <marquee behavior="" direction="left">
+            <h1 id="myH1">Mike to Charlie, Mike to Charlie... It's all raining here, over!</h1>
+        </marquee>
+    </body>
+</html>

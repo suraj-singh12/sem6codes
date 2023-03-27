@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Hello World</title>
+    </head>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+        socket.on('newclientconnect', (data) => {
+            document.body.innerHTML = '';
+            document.write(data.msg);
+        })
+    </script>
+    <body>
+        <h1>Hello World</h1>
+    </body>
+</html>
