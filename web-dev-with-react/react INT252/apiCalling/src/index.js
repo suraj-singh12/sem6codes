@@ -7,6 +7,7 @@ import UncontrolledComponent from './components/UncontrolledComponent';
 import UsingAxios from './components/usingAxios';
 import UsingAxiosPost from './components/UsingAxiosPost';
 import GetRequest from './requests/GetRequest';
+import PostRequest from './requests/PostRequest';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -16,6 +17,7 @@ root.render(
     {/* <UncontrolledComponent /> */}
     {/* <UsingAxios /> */}
     {/* <UsingAxiosPost /> */}
-    <GetRequest />
+    {/* <GetRequest /> */}
+    <PostRequest />
   </React.StrictMode>
 );

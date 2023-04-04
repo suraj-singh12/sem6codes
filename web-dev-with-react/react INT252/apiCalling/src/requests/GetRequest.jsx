@@ -5,7 +5,10 @@ const GetRequest = () => {
   const [users, setUsers] = useState([]);
   fetch('https://jsonplaceholder.typicode.com/users')
   .then(response => response.json()) 
-  .then(result => setUsers(result))
+  .then(result => {
+    console.log(result)
+    setUsers(result)
+  })
   .catch(err => console.error(err));
 
   return(
