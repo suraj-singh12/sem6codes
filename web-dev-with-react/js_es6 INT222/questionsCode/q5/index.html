@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Number Verification</title>
+</head>
+<body>
+    <h1>Prime Number Verification Form</h1>
+    <label for="Number">Enter a number:
+        <input type="number" name="number" id="number" required />
+    </label>
+    <button type="submit" onclick="checkPrime()">Check Prime</button>
+    <p id="result"></p>
+</body>
+<script>
+    function checkPrime() {
+        const number = document.getElementById('number').value;
+        fetch(`http://localhost:3000/isprime?number=${number}`)
+        .then(response => response.json())
+        .then(result => {
+            const resultContainer = document.getElementById('result');
+            resultContainer.textContent = result.isPrime ? `${number} is a prime number` : `${number} is NOT a prime number`;
+        })
+        .catch(err => {
+            console.log('Error occurred:', err);
+            const resultContainer = document.getElementById('result');
+            resultContainer.textContent = `An error occurred during processing. Try again later.`;
+        });
+    }
+</script>
+</html>

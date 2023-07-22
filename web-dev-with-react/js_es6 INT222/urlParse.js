@@ -1,6 +1,5 @@
-var url = require('url');
 var adr = 'http://localhost:8000/default.htm?name=Raj&Age=20';
-
+var url = require('url');
 var q = url.parse(adr);         // main url.parse() method
 
 console.log(q.host);        // returns 'localhost:8000'

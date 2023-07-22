@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Form Validation</title>
+</head>
+<body>
+    <form action="/validateData" method="POST">
+        <label for="stdName">Student Name: 
+            <input type="text" id="stdName" name="name" required/>
+        </label>
+        <label for="regNo">Reg. No: 
+            <input type="number" name="regNo" id="regNo" required/>
+        </label>
+        <label for="rollNo">Roll No:
+            <input type="number" name="rollNo" id="rollNo" />
+        </label>
+        <label for="mobile">Mobile:
+            <input type="number" name="mobile" id="mobile" />
+        </label>
+        <label for="email">Email:
+            <input type="email" name="email" id="email" required/>
+        </label>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,3 @@
+Reg No         Name             Grade
+1200xxxx    Student Name       Grade O (top)
+
