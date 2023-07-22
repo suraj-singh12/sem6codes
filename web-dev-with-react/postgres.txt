@@ -1,0 +1,4 @@
+\du
+\list	: list all databases
+
+create database university;		// database creation
