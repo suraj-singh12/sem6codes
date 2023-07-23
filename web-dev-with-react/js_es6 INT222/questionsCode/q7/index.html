@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client - Server Connection | SocketIO</title>
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <h1>Client - Server Connection | SocketIO</h1>
+
+    <form id="studentDetailsForm">
+        <label for="name"> Enter Student Name:
+            <input type="text" name="name" id="name" required />
+        </label>
+        <label for="regNo">Enter Reg. Number: 
+            <input type="number" name="regNo" id="regNo" required />
+        </label>
+        <label for="strea">Enter your stream:
+            <input type="text" name="stream" id="stream" required />
+        </label>
+        <button type="submit">Connect</button>
+    </form>
+
+    <div id="dataContainer"></div>
+
+    <script>
+        var socket = io();
+        const dataContainer = document.getElementById('dataContainer');
+        socket.on('visitorCount', (data) => {
+            console.log('visitor Count: ', data);
+            dataContainer.textContent = ` # Total Visitor Count: ${data}`;
+        });
+        socket.on('ConnectionEstablished', (data) => {
+            console.log('c: ', data);
+            const p = document.createElement('p');
+            p.textContent = data;
+            p.style.margin = '2px';
+            dataContainer.prepend(p);
+        })
+        document.getElementById('studentDetailsForm').addEventListener('submit', (event) => {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const details = {};
+            formData.forEach((value, key) => {
+                details[key] = value;
+            });
+            console.log(details);
+            socket.emit('studentDetails', details);
+        });
+    </script>
+</body>
+</html>
