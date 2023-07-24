@@ -15,11 +15,11 @@ io.on('connection', (socket) => {
     });
 });
 
+
 http.listen(3001, () => {
     console.log('Server is running on port 3001');
     console.log('http://localhost:3001');
 })
-
 
 // .on() is used for listening to the message
 // .emit() is used for sending the message

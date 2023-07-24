@@ -11,3 +11,10 @@ let buff1 = Buffer.from('Hello');
 let buff2 = Buffer.from('World');
 let buff3 = Buffer.concat([buff1, buff2], 4);
 console.log('contents of buffer are: ',buff3.toString());
+
+
+let buf1 = Buffer.alloc(10);
+buf1.fill('3');
+
+let buf2 = Buffer.from('ksldfjalkjdsklah')
+console.log(buf2.toString())

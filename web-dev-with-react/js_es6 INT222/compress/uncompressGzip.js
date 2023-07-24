@@ -6,6 +6,7 @@
 // let w = fs.createWriteStream('test.txt');
 // r.pipe(gunzip).pipe(w);
 
+let fs = require('fs');
 
 let zlib = require('zlib');
 let data = 'This is nodejs class';
@@ -15,3 +16,4 @@ zlib.gzip(data, (err, buffer) => {
         console.log(buffer.toString('utf8'));
     })
 });
+

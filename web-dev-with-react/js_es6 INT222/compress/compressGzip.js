@@ -9,7 +9,6 @@
 // r.pipe(gzip).pipe(w);
 
 
-
 let zlib = require('zlib');
 let data = 'This is nodejs class';
 zlib.gzip(data, (err, buffer) => {
@@ -20,3 +19,4 @@ zlib.gzip(data, (err, buffer) => {
     }
 });
 console.log('Data has been compressed');
+
